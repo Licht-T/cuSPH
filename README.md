@@ -73,6 +73,17 @@ The template parameters ``<class A, class B, unsigned int X, unsigned int Y, uns
 
 ***X/Y/Z should be a multiple of 8.***
 
+Parameters of the constructor ``cuSPH3DBase(unsigned int n, double time_int, struct Box box)`` mean
+
++   `n` :
+    The number of particles. ***This should be a multiple of 512.***
+
++   `time_int` :
+    The time step in each calculation.
+
++   `box` :
+    This contains the max boundary in x/y/z axis and the minimum radius of particles.
+
 Then, override ``displayFunc()`` in order to display.
 
 You can get/set the data of particles from/to CUDA device by ``particles.getFromDevice()``/``particles.setToDevice()``.
