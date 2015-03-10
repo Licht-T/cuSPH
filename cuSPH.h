@@ -1,5 +1,7 @@
 #pragma once
 
+#include <type_traits>
+
 #include <vector>
 #include <limits>
 #include <string>
@@ -259,7 +261,7 @@ namespace licht
 			return ret;
 		}
 
-		template <typename T> __device__ __host__ std::enable_if_t<std::is_floating_point<T>::value, T> dist(Vec3<T>& lhs, Vec3<T>& rhs)
+		template <typename T> __device__ __host__ typename std::enable_if<std::is_floating_point<T>::value, T>::type dist(Vec3<T>& lhs, Vec3<T>& rhs)
 		{
 			return sqrt(
 					pow(lhs.x-rhs.x,2.0)
@@ -268,7 +270,7 @@ namespace licht
 				   );
 		}
 
-		template <typename T> __device__ __host__ std::enable_if_t<std::is_floating_point<T>::value, T> abs(Vec3<T>& v)
+		template <typename T> __device__ __host__ typename std::enable_if<std::is_floating_point<T>::value, T>::type abs(Vec3<T>& v)
 		{
 			return sqrt( pow(v.x,2.0)+pow(v.y,2.0)+pow(v.z,2.0) );
 		}

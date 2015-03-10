@@ -4,6 +4,10 @@ Simple library for the SPH simulation and display in CUDA.
 
 Currently available on 3D SPH.
 
+Demo Video
+------
+[![](http://img.youtube.com/vi/-qzJbPt0YYc/0.jpg)](https://www.youtube.com/watch?v=-qzJbPt0YYc)
+
 Requirements
 ------
 +   CUDA 6.5 or later.
@@ -288,7 +292,7 @@ template <class A, unsigned int X, unsigned int Y, unsigned int Z>
 ```
 
 ### Compile ###
-	nvcc -std=c++11 cuSPH-test.cu
+	nvcc -std=c++11 -lm -lGL -lGLU -lGLEW -lglfw3 cuSPH-test.cu
 
 License
 ----------
